@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Credentials</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+  <%- include("./includes/navbar.ejs")%>
+
+  <div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="card shadow-lg border-0 rounded-4 p-4" style="max-width: 450px; width: 100%;">
+      <div class="card-body">
+        <h3 class="card-title text-center mb-4 text-primary fw-bold">
+          <i class="bi bi-key-fill"></i> Add New Credential
+        </h3>
+
+        <form action="/add" method="POST">
+          <div class="mb-3">
+            <label for="credentials" class="form-label fw-semibold">Credentials</label>
+            <input type="text" class="form-control rounded-pill" id="credentials" name="credentials" placeholder="Enter site/app name" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="password" class="form-label fw-semibold">Password</label>
+            <input type="password" class="form-control rounded-pill" id="password" name="password" placeholder="Enter password" required>
+          </div>
+
+          <div class="d-grid mt-4">
+            <button type="submit" class="btn btn-primary rounded-pill shadow-sm fw-bold">
+              <i class="bi bi-plus-circle"></i> Add Credential
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Passwords</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <%- include("./includes/navbar.ejs") %>
+
+  <div class="container mt-5">
+    <h2 class="text-center text-primary fw-bold">Your Saved Passwords</h2>
+    <table class="table table-bordered table-striped mt-4 shadow-sm">
+      <thead class="table-primary">
+        <tr>
+          <th>Credential</th>
+          <th>Password</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if (passwords.length > 0) { %>
+          <% passwords.forEach(p => { %>
+            <tr>
+              <td><%= p.title %></td>
+              <td>
+                <input type="text" 
+                       value="<%= p.pass %>" 
+                       id="pass-<%= p._id %>" 
+                       class="form-control border-0 bg-transparent" 
+                       readonly>
+              </td>
+              <td>
+                <button class="btn btn-sm btn-outline-primary" 
+                        onclick="copyPassword('<%= p._id %>')">
+                  Copy
+                </button>
+              </td>
+            </tr>
+          <% }) %>
+        <% } else { %>
+          <tr>
+            <td colspan="3" class="text-center text-muted">No passwords saved yet</td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    function copyPassword(id) {
+      const input = document.getElementById("pass-" + id);
+      input.select();
+      input.setSelectionRange(0, 99999); // for mobile
+      navigator.clipboard.writeText(input.value)
+        .then(() => {
+          alert("Password copied!");
+        })
+        .catch(err => {
+          console.error("Failed to copy: ", err);
+        });
+    }
+  </script>
+</body>
+</html>
