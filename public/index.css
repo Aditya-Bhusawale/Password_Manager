@@ -1,1 +1,39 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
 
+h1 {
+  font-size: 50px;
+  color: #1f2937;
+}
+
+p {
+  font-size: 25px;
+  color: #4b5563;
+  margin-top: 10px;
+}
+
+.add-btn {
+  margin-top: 30px;
+  padding: 12px 24px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #1f2937;
+  background-color: #ffffff;
+  border: 2px solid #d1d5db;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-btn:hover {
+  background-color: #f3f4f6;
+}
+
+.content{
+    margin-top: 25vh;
+}
